@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Archives: 2016 | 7的博客</title>
+  <title>Docker的基本使用 | 7的博客</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -84,7 +84,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -170,87 +170,68 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/IMG_2336.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>我有一个愿望</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>可以每天起床做的第一件事就是再睡一觉！</p>
-                        
-
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/11/25/node-run/">让node跑起来</a></h4>
-                            
-                            <p><time datetime="2016-11-25T14:43:13.000Z"><a href="/2016/11/25/node-run/">2016-11-25</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/11/25/docker-base/">Docker的基本使用</a></h4>
-                            
-                            <p><time datetime="2016-11-25T05:58:21.000Z"><a href="/2016/11/25/docker-base/">2016-11-25</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2016/11/21/hexo-blog/">hexoBlog</a></h4>
-                            
-                            <p><time datetime="2016-11-21T15:43:18.000Z"><a href="/2016/11/21/hexo-blog/">2016-11-21</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-25T05:58:21.000Z" itemprop="datePublished">
+          2016-11-25
+      </time>
+    
+    
+    | 
+    <a href='/tags/docker/'>docker</a>
+    
+    
+</span>
+                <h1>Docker的基本使用</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="三个基本概念"><a href="#三个基本概念" class="headerlink" title="三个基本概念"></a>三个基本概念</h1><ul>
+<li>仓库（Repository）：相当于一个商店，里面有各种镜像可以供用户下载使用。</li>
+<li>镜像（Image）：相当于一个系统文件，用来创建容器。</li>
+<li>容器（Container）：是镜像运行的实体，相当于一个操作的系统，可以被创建、启动、停止、删除等操作。</li>
+</ul>
+<h1 id="管理镜像"><a href="#管理镜像" class="headerlink" title="管理镜像"></a>管理镜像</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">docker search &lt;镜像名&gt;  //从仓库查找镜像</div><div class="line"></div><div class="line">docker pull &lt;镜像名&gt;   //从仓库下载镜像</div><div class="line"></div><div class="line">docker rmi &lt;镜像名&gt;  //删除一个镜像</div><div class="line"></div><div class="line">docker images  //查看本地已有镜像</div></pre></td></tr></table></figure>
+<h1 id="管理容器"><a href="#管理容器" class="headerlink" title="管理容器"></a>管理容器</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]  //启动一个容器</div><div class="line">// eg: docker run --name MongoDB-Server -d -p 27017:27017 mongo  </div><div class="line">// -d：后台启动一个容器    -p: 映射端口   --name MongoDB-Server:给容器命名为MongoDB-Server</div><div class="line"></div><div class="line">docker ps //查看容器列表</div><div class="line"></div><div class="line">docker restart &lt;ID&gt; //重启容器</div><div class="line"></div><div class="line">docker stop &lt;ID&gt; //关闭容器</div><div class="line"></div><div class="line">docker rm &lt;容器名&gt;  //删除一个镜像</div></pre></td></tr></table></figure>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="pagination" role="pagination">
+    
+    <a class="pull-left" href="/2016/11/25/node-run/" style="float: left;">
+        ← 让node跑起来
+    </a>
+    
+    
+    <a class="pull-right" href="/2016/11/21/hexo-blog/">
+        hexoBlog →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/11/25/docker-base/" data-title="Docker的基本使用" data-url="http://xvskkk.github.io/2016/11/25/docker-base/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
